@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.test_files = Dir['spec/**/*']
 
-  s.add_dependency 'rails', '~> 5.0.1'
+  s.add_dependency 'rails', '>= 4.1'
   s.add_dependency 'sr_log', '~> 1.0'
 
   s.add_development_dependency 'awesome_print'

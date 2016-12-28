@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     log_changes (0.1.0)
-      rails (~> 5.0.1)
+      rails (>= 4.1)
       sr_log (~> 1.0)
 
 GEM
