@@ -46,6 +46,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     arel (7.1.4)
+    awesome_print (1.7.0)
     builder (3.2.2)
     concurrent-ruby (1.0.4)
     database_cleaner (1.5.3)
@@ -137,6 +138,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   database_cleaner
   factory_girl_rails
   log_changes!

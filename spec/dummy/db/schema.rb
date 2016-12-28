@@ -12,10 +12,28 @@
 
 ActiveRecord::Schema.define(version: 20161228194303) do
 
-  create_table "my_models", force: :cascade do |t|
-    t.string   "string_attr"
+  create_table "employees", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pictures", force: :cascade do |t|
+    t.string   "name"
+    t.string   "imageable_type"
+    t.integer  "imageable_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.integer  "employee_id"
+    t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["employee_id"], name: "index_products_on_employee_id"
   end
 
 end
