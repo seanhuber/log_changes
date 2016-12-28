@@ -1,5 +1,6 @@
-require "log_changes/engine"
+require 'log_changes/engine'
+require 'sr_log'
 
 module LogChanges
-  # Your code goes here...
+  autoload :Base,   'log_changes/base'
 end
