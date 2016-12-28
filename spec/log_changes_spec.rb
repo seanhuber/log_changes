@@ -33,10 +33,26 @@ module LogChanges
         expect(File).to exist(logfile_path)
         expect(File.readlines(logfile_path).any?).to be true
       end
+    end
 
-      # employee.update_attributes! last_name: 'Smith'
-      # puts "\n\nEmployee count: #{Employee.count}\nProduct count: #{Product.count}\nPicture count: #{Picture.count}\n\n"
-      # expect(true).to be true
+    it 'should log updates' do
+      employee = FactoryGirl.create :employee
+      logfile_path = Rails.root.join 'log', 'record_changes', "#{Date.today.strftime '%Y.%m'}_Employee.log"
+      File.open(logfile_path, 'w') {|file| file.truncate(0)}
+      employee.update_attributes! first_name: 'John', last_name: 'Smith'
+      log_lines = File.readlines(logfile_path).map(&:strip)
+      first_msg = log_lines.select{|str| str.include?('Updated Employee') && str.include?('John Smith')}
+      expect(first_msg.any?).to be true
+      [
+        'first_name:',
+        'FROM: Jane',
+        'TO: John',
+        'last_name:',
+        'FROM: Doe',
+        'TO: Smith'
+      ].each do |log_line|
+        expect(log_lines).to include(log_line)
+      end
     end
   end
 end
