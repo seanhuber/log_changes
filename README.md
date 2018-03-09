@@ -1,3 +1,7 @@
+[![Gem Version](https://badge.fury.io/rb/log_changes.svg)](https://badge.fury.io/rb/log_changes)
+[![Build Status](https://travis-ci.org/seanhuber/log_changes.svg?branch=master)](https://travis-ci.org/seanhuber/log_changes)
+[![Coverage Status](https://coveralls.io/repos/github/seanhuber/log_changes/badge.svg?branch=master)](https://coveralls.io/github/seanhuber/log_changes?branch=master)
+
 # LogChanges
 
 `log_changes` is a simple gem that writes `ActiveRecord#changes` contents to model-dedicated logfiles.
